@@ -3,7 +3,6 @@ package homework3.Packages;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
-@Accessors(chain = true)
 /**
  * Тип посылки письмо - переопределяет рассчет стооимости с учетом своего коэффициаента
  */
