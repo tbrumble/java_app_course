@@ -1,8 +1,7 @@
 package homework3;
 
-import homework3.DeliverTypes.DeliverType;
 import homework3.Packages.*;
-import homework3.Packages.Package;
+import homework3.PostService.RussianPostService;
 
 import java.util.Scanner;
 
@@ -50,6 +49,6 @@ public class Post {
                 packageData.countCost(packageDetails));
         //имитируем отправку
         System.out.printf("Посылка отправлена, идентификатор: %s%n",
-                new PostService().sendPackage(packageData));
+                new RussianPostService().sendPackage(packageData));
     }
 }
