@@ -1,10 +1,11 @@
 package homework3.Packages;
 
 import junit.framework.TestCase;
-public class PackageImplTest extends TestCase {
+
+public class LetterTest extends TestCase {
 
     public void testCountCost() {
-        Package packageData = new PackageImpl()
+        Package packageData = new Letter()
                 .setFragile(false)
                 .setOversize(false)
                 .setWeight(1000)
@@ -14,11 +15,6 @@ public class PackageImplTest extends TestCase {
 
         PackageDetails packageDetails = new PackageDetails();
         packageDetails.setDistance(88);
-        assertTrue("Значения равны", packageData.countCost(packageDetails) == 1056000.00);
+        assertTrue("Значения равны", packageData.countCost(packageDetails) == 1267200.00);
     }
-
-    public void testSendPackage() {
-        assertFalse("guid присвоен", new PackageImpl().sendPackage().toString().equals(""));
-    }
-
 }
