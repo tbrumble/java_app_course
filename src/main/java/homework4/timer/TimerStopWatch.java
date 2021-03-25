@@ -1,10 +1,10 @@
-package homework4;
+package homework4.timer;
 
 import java.time.Clock;
 
 public class TimerStopWatch {
     private static TimerStopWatch INSTANCE = null;
-    private static long startTime = 0l;
+    private static long startTime = 0;
 
     public static TimerStopWatch getInstance() {
         if (INSTANCE == null) {
@@ -19,7 +19,7 @@ public class TimerStopWatch {
 
     public long stopTime() {
         long result = Clock.systemDefaultZone().millis() - startTime;
-        startTime = 0l;
+        startTime = 0;
         return result;
     }
 }

@@ -1,6 +1,6 @@
 package homework4.IO;
 
-import homework4.TimerStopWatch;
+import homework4.timer.TimerStopWatch;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 
@@ -55,7 +55,7 @@ public class IOUtils {
         try (FileInputStream fis = new FileInputStream(file)) {
             BufferedInputStream buf = new BufferedInputStream(fis);
             int i;
-            byte[] bytes = new byte[4096];
+            byte[] bytes = new byte[4096]; //можно снова менять буфер
             do {
                 i = buf.read(bytes);
                 resultString = resultString.concat(new String(bytes, StandardCharsets.UTF_8));
@@ -75,7 +75,7 @@ public class IOUtils {
         try (FileInputStream fis = new FileInputStream(file)) {
             BufferedInputStream buf = new BufferedInputStream(fis);
             int i;
-            byte[] contents = new byte[4096];
+            byte[] contents = new byte[4096]; //снова можно поиграться буфером
             do {
                 i = buf.read(contents);
                 outputStream.write(contents);
@@ -116,8 +116,7 @@ public class IOUtils {
         return resultString;
     }
 
-    //в файле для примера указан lorenipsum обернутый в тег <p>
-    //можно заменить часть данных на логические фргаменты и заменить их через StreamTokenizer
+    //можно разбить часть данных на логические фргаменты и читать через StreamTokenization
     public void replaceStringWithTokenization(String stringValue, File file, File fileOutput) {
         TimerStopWatch.getInstance().startTime();
         FileReader fr;
@@ -143,7 +142,7 @@ public class IOUtils {
         System.out.println("Время работы заменителя строки через токенайзер: " + TimerStopWatch.getInstance().stopTime());
     }
 
-    //можно заменить часть данных на логические фргаменты и заменить их через StreamTokenizer
+    //Заменяем символы
     public void replaceCharInFile(char oldCharValue, char newCharValue, File file, File fileOutput) {
         TimerStopWatch.getInstance().startTime();
         try {
