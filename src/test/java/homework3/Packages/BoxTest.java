@@ -1,20 +1,33 @@
 package homework3.Packages;
 
 import junit.framework.TestCase;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 public class BoxTest extends TestCase {
+    private final double CORRECT_COST = 2112000.00;
+    private double distance, weight, height, length, width;
+    boolean fragile, oversize;
+
+
+    @Override
+    protected void setUp() throws Exception {
+        weight = 1000;
+        height = 100;
+        length = 200;
+        width = 100;
+        fragile = false;
+        oversize = false;
+        distance = 88;
+        super.setUp();
+    }
 
     public void testCountCost() {
-        Package packageData = new Box()
-                .setFragile(false)
-                .setOversize(false)
-                .setWeight(1000)
-                .setHeight(100)
-                .setLength(200)
-                .setWidth(100);
-
+        Package packageData = new Box(weight, length, height, width, fragile, oversize);
         PackageDetails packageDetails = new PackageDetails();
-        packageDetails.setDistance(88);
-        assertTrue("Значения равны", packageData.countCost(packageDetails) == 2112000.00);
+        packageDetails.setDistance(distance);
+        int compareResult = Double.compare(packageData.countCost(packageDetails), CORRECT_COST);
+        assertTrue("Значения равны", compareResult == 0);
     }
 }
